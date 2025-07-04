@@ -1,0 +1,8 @@
+baseURL = "https://educadent.netlify.app/"
+languageCode = "es"
+title = "Mi sitio Hugo"
+theme = "ananke"  
+
+[params]
+  author = "Jaime"
+  description = "Sitio creado con Hugo y Manus"

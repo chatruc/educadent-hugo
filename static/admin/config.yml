@@ -1,0 +1,40 @@
+backend:
+name: git-gateway
+branch: main
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+locale: 'es'
+
+collections:
+  - name: "eventos"
+    label: "Eventos"
+    folder: "content/eventos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Fecha y Hora", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "DD/MM/YYYY", time_format: "HH:mm"}
+      - {label: "Imagen Destacada", name: "featured_image", widget: "image", required: false}
+      - {label: "URL de Registro", name: "registration_url", widget: "string", required: false}
+      - {label: "Ubicación", name: "location", widget: "string", required: false}
+      - {label: "Precio", name: "price", widget: "string", required: false}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+      
+  - name: "pages"
+    label: "Páginas"
+    files:
+      - label: "Página Principal"
+        name: "home"
+        file: "content/_index.md"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Descripción", name: "description", widget: "string"}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+      - label: "Página de Eventos"
+        name: "eventos-index"
+        file: "content/eventos/_index.md"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Descripción", name: "description", widget: "string"}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+

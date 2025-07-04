@@ -1,0 +1,36 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<p>{{ .Content }}</p>
+
+<div class="events-grid">
+    {{ range .Pages }}
+    <div class="event-card">
+        <h3><a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">{{ .Title }}</a></h3>
+        <div class="event-meta">
+            <p><strong>Fecha:</strong> {{ .Date.Format "2 de January, 2006" }}</p>
+            {{ if .Params.location }}
+            <p><strong>Lugar:</strong> {{ .Params.location }}</p>
+            {{ end }}
+            {{ if .Params.price }}
+            <p><strong>Precio:</strong> {{ .Params.price }}</p>
+            {{ end }}
+        </div>
+        <p>{{ .Summary }}</p>
+        <div style="margin-top: 1rem;">
+            <a href="{{ .Permalink }}" class="btn">Ver Detalles</a>
+            {{ if .Params.registration_url }}
+            <a href="{{ .Params.registration_url }}" class="btn" style="background: #27ae60; margin-left: 0.5rem;">Registrarse</a>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+{{ if eq (len .Pages) 0 }}
+<div class="event-card" style="text-align: center;">
+    <h3>No hay eventos programados</h3>
+    <p>Mantente atento a nuestras próximas actualizaciones.</p>
+</div>
+{{ end }}
+{{ end }}
+

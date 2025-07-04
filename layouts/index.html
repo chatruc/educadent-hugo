@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="stats">
+    <h3>2000+</h3>
+    <p>Dentistas Conectados</p>
+</div>
+
+<section>
+    <h2>Próximos Eventos Destacados</h2>
+    <div class="events-grid">
+        {{ range first 3 (where .Site.RegularPages "Section" "eventos") }}
+        <div class="event-card">
+            <h3><a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">{{ .Title }}</a></h3>
+            <div class="event-meta">
+                <p><strong>Fecha:</strong> {{ .Date.Format "2 de January, 2006" }}</p>
+                {{ if .Params.location }}
+                <p><strong>Lugar:</strong> {{ .Params.location }}</p>
+                {{ end }}
+                {{ if .Params.price }}
+                <p><strong>Precio:</strong> {{ .Params.price }}</p>
+                {{ end }}
+            </div>
+            <p>{{ .Summary }}</p>
+            <div style="margin-top: 1rem;">
+                <a href="{{ .Permalink }}" class="btn">Ver Detalles</a>
+                {{ if .Params.registration_url }}
+                <a href="{{ .Params.registration_url }}" class="btn" style="background: #27ae60; margin-left: 0.5rem;">Registrarse</a>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="/eventos/" class="btn">Ver Todos los Eventos</a>
+    </div>
+</section>
+
+<section style="margin-top: 3rem;">
+    <div class="event-card">
+        <h2>Publicar un Evento</h2>
+        <p>Comparte tu evento educativo con la comunidad odontológica chilena. Llena el formulario y nuestro equipo lo revisará antes de publicarlo.</p>
+        <div style="margin-top: 1rem;">
+            <a href="#contacto" class="btn">Contactar para Publicar</a>
+        </div>
+    </div>
+</section>
+{{ end }}
+

@@ -1,0 +1,34 @@
+{{ define "main" }}
+<article>
+    <header style="margin-bottom: 2rem;">
+        <h1>{{ .Title }}</h1>
+        <div class="event-meta" style="font-size: 1.1rem; margin: 1rem 0;">
+            <p><strong>Fecha:</strong> {{ .Date.Format "2 de January, 2006 a las 15:04" }}</p>
+            {{ if .Params.location }}
+            <p><strong>Lugar:</strong> {{ .Params.location }}</p>
+            {{ end }}
+            {{ if .Params.price }}
+            <p><strong>Precio:</strong> {{ .Params.price }}</p>
+            {{ end }}
+        </div>
+        
+        {{ if .Params.registration_url }}
+        <div style="margin: 1.5rem 0;">
+            <a href="{{ .Params.registration_url }}" class="btn" style="background: #27ae60; font-size: 1.1rem; padding: 1rem 2rem;">Registrarse Ahora</a>
+        </div>
+        {{ end }}
+    </header>
+    
+    <div class="event-card">
+        {{ .Content }}
+    </div>
+    
+    <div style="margin-top: 2rem; text-align: center;">
+        <a href="/eventos/" class="btn">← Volver a Eventos</a>
+        {{ if .Params.registration_url }}
+        <a href="{{ .Params.registration_url }}" class="btn" style="background: #27ae60; margin-left: 1rem;">Registrarse</a>
+        {{ end }}
+    </div>
+</article>
+{{ end }}
+

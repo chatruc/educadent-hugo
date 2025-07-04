@@ -1,0 +1,13 @@
+baseURL = 'https://kltsebjy.manus.space/'
+languageCode = 'es-cl'
+title = 'Educadent.cl - Educación Odontológica en un solo lugar'
+defaultContentLanguage = 'es'
+
+[params]
+  description = "Descubre cursos, seminarios, congresos y eventos especializados para dentistas en Chile. Mantente actualizado con las últimas tendencias en odontología."
+  
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
